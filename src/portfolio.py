@@ -8,8 +8,19 @@ class Portfolio:
         self.positions = {} 
         self.history = []   
 
+    def __len__(self):
+        return len(self.history)
+
+    def __getitem__(self, ticker: str):
+        return self.positions.get(ticker, 0)
+
+    def __contains__(self, ticker: str):
+        return ticker in self.positions and self.positions[ticker] > 0
+
+    def __iter__(self):
+        return iter(self.positions.items())
+
     def buy(self, ticker: str, price: float, quantity: int, date: str):
-        """Купи актив и удръж съответната такса."""
         cost = price * quantity
         fee = cost * self.fee_percent
         total_cost = cost + fee
@@ -18,7 +29,7 @@ class Portfolio:
             raise InsufficientFundsError(total_cost, self.cash)
 
         self.cash -= total_cost
-        self.positions[ticker] = self.positions.get(ticker, 0) + quantity
+        self.positions[ticker] = self[ticker] + quantity
         
         self.history.append({
             "action": "BUY",
@@ -31,8 +42,7 @@ class Portfolio:
         logger.info(f"Купени {quantity} бр. {ticker} на цена {price:.2f}. Такса: {fee:.2f}")
 
     def sell(self, ticker: str, price: float, quantity: int, date: str):
-        """Продай актив и добави парите към баланса."""
-        current_qty = self.positions.get(ticker, 0)
+        current_qty = self[ticker]
         
         if current_qty < quantity:
             logger.warning(f"Опит за продажба на {quantity} {ticker}, но имаме само {current_qty}.")
@@ -59,13 +69,11 @@ class Portfolio:
         logger.info(f"Продадени {quantity} бр. {ticker} на цена {price:.2f}. Такса: {fee:.2f}")
 
     def get_total_value(self, current_prices: dict) -> float:
-        """Изчисли общата стойност на портфейла (Кеш + Стойност на акциите)."""
         value = self.cash
-        for ticker, qty in self.positions.items():
+        for ticker, qty in self:
             if ticker in current_prices:
                 value += qty * current_prices[ticker]
         return value
 
     def __str__(self):
-        """Върни текстова репрезентация на портфейла."""
         return f"Портфейл(Кеш: {self.cash:.2f}, Активи: {self.positions})"

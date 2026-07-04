@@ -11,7 +11,9 @@ class TestPortfolio(unittest.TestCase):
         self.portfolio.buy("AAPL", 100.0, 2, "2024-01-01")
         
         self.assertEqual(self.portfolio.cash, 798.0)
-        self.assertEqual(self.portfolio.positions["AAPL"], 2)
+        self.assertEqual(self.portfolio["AAPL"], 2)
+        self.assertIn("AAPL", self.portfolio)
+        self.assertEqual(len(self.portfolio), 1)
 
     def test_buy_insufficient_funds(self):
         with self.assertRaises(InsufficientFundsError):
@@ -23,7 +25,7 @@ class TestPortfolio(unittest.TestCase):
         self.portfolio.sell("AAPL", 150.0, 1, "2024-01-02")
         
         self.assertEqual(self.portfolio.cash, 1148.5)
-        self.assertEqual(self.portfolio.positions["AAPL"], 1)
+        self.assertEqual(self.portfolio["AAPL"], 1)
 
 if __name__ == "__main__":
     unittest.main()

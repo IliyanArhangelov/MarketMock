@@ -45,7 +45,7 @@ class PerformanceReporter:
         
         report_data = {
             "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "total_trades": len(self.portfolio.history),
+            "total_trades": len(self.portfolio),
             "final_value": round(final_value, 2),
             "roi_percentage": round(roi, 2),
             "max_drawdown_percentage": round(max_dd, 2)
