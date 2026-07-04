@@ -98,3 +98,21 @@
 2026-07-04 13:42:19,230 - INFO - Стратегията реши: SELL 1 бр.
 2026-07-04 13:42:19,231 - INFO - Продадени 1 бр. ASSET на цена 152.00. Такса: 0.15
 2026-07-04 13:42:19,231 - INFO - --- КРАЙ НА СИМУЛАЦИЯТА ---
+2026-07-04 19:24:31,263 - WARNING - Not Found: /favicon.ico
+2026-07-04 19:24:34,791 - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/views.py", line 11, in home_view
+    uploaded_file = form.cleaned_data['csv_file'] # Взимаме файла
+                    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'csv_file'
+2026-07-04 19:26:25,484 - INFO - /home/stoyankolev/Documents/VsCode/MarketMock/simulator/forms.py changed, reloading.
+2026-07-04 19:28:52,233 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-04 19:28:52,233 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-04 19:28:52,233 - INFO - Купени 1 бр. ASSET на цена 96.00. Такса: 0.10
+2026-07-04 19:28:52,233 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-04 19:28:52,234 - INFO - Продадени 1 бр. ASSET на цена 152.00. Такса: 0.15
+2026-07-04 19:28:52,234 - INFO - --- КРАЙ НА СИМУЛАЦИЯТА ---

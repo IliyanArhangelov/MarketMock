@@ -10,8 +10,7 @@
             <div class="card-body">
                 <p class="text-muted">Въведете начален капитал и стартирайте backtest-а.</p>
                 
-                <form method="POST">
-                    <!-- Задължителна защита при POST заявки в Django -->
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     
                     <div class="mb-3">
