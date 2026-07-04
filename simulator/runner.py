@@ -2,11 +2,18 @@ import os
 import tempfile
 from simulator.models import BacktestRun, Trade
 from src.portfolio import Portfolio
-from src.strategies import SimpleStrategy
+from src.strategies import SimpleStrategy, AlwaysBuyStrategy, MomentumStrategy
 from src.data_loader import csv_data_generator
 from src.engine import MarketEngine
 
-def execute_simulation(initial_capital: float, uploaded_file) -> int:
+def get_strategy_instance(strategy_key: str):
+    if strategy_key == 'always_buy':
+        return AlwaysBuyStrategy()
+    elif strategy_key == 'momentum':
+        return MomentumStrategy()
+    return SimpleStrategy()
+
+def execute_simulation(initial_capital: float, strategy_key: str, uploaded_file) -> int:
     with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp_file:
         for chunk in uploaded_file.chunks():
             tmp_file.write(chunk)
@@ -14,14 +21,14 @@ def execute_simulation(initial_capital: float, uploaded_file) -> int:
 
     try:
         portfolio = Portfolio(initial_capital=initial_capital)
-        strategy = SimpleStrategy()
+        strategy = get_strategy_instance(strategy_key)
         data_gen = csv_data_generator(temp_file_path) 
         
         engine = MarketEngine(
             data_feed=data_gen,
             portfolio=portfolio,
             strategy=strategy,
-            ticker=uploaded_file.name 
+            ticker=uploaded_file.name
         )
         
         engine.run()
@@ -45,8 +52,8 @@ def execute_simulation(initial_capital: float, uploaded_file) -> int:
                     max_dd = dd
 
         run_record = BacktestRun.objects.create(
-            strategy_name="SimpleStrategy",
-            ticker=uploaded_file.name, 
+            strategy_name=strategy.__class__.__name__,
+            ticker=uploaded_file.name,
             initial_capital=initial_capital,
             final_value=final_value,
             roi_percentage=roi,

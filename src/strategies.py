@@ -9,11 +9,13 @@ def log_signal(func):
         return signal
     return decorated
 
+
 class BaseStrategy:
     """Служи като базов клас за всички търговски стратегии."""
     def generate_signal(self, current_data: dict, current_cash: float) -> dict:
         """Генерирай сигнал за търговия. Трябва да се презапише от класа-наследник."""
         raise NotImplementedError("Този метод трябва да се презапише.")
+
 
 class SimpleStrategy(BaseStrategy):
     """Купувай при спад, продавай при ръст."""
@@ -32,3 +34,33 @@ class SimpleStrategy(BaseStrategy):
             return {"action": "SELL", "quantity": 1}
         else:
             return {"action": "HOLD", "quantity": 0}
+        
+class AlwaysBuyStrategy(BaseStrategy):
+    @log_signal
+    def generate_signal(self, current_data: dict, current_cash: float) -> dict:
+        price = float(current_data["Close"])
+        if current_cash >= price:
+            return {"action": "BUY", "quantity": 1}
+        return {"action": "HOLD", "quantity": 0}
+
+class MomentumStrategy(BaseStrategy):
+    def __init__(self):
+        self.previous_price = None
+
+    @log_signal
+    def generate_signal(self, current_data: dict, current_cash: float) -> dict:
+        price = float(current_data["Close"])
+        
+        if self.previous_price is None:
+            self.previous_price = price
+            return {"action": "HOLD", "quantity": 0}
+
+        if price > self.previous_price * 1.02:
+            signal = {"action": "BUY", "quantity": 1}
+        elif price < self.previous_price * 0.98:
+            signal = {"action": "SELL", "quantity": 1}
+        else:
+            signal = {"action": "HOLD", "quantity": 0}
+
+        self.previous_price = price
+        return signal
