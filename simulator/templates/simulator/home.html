@@ -1,0 +1,27 @@
+{% extends "simulator/base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Нова Симулация</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Въведете начален капитал и стартирайте backtest-а.</p>
+                
+                <form method="POST">
+                    <!-- Задължителна защита при POST заявки в Django -->
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success w-100">🚀 Стартирай Теста</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
