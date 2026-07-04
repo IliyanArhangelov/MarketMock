@@ -1,10 +1,9 @@
 import sys
 from src.data_loader import csv_data_generator
 from src.portfolio import Portfolio
-from src.strategies import SimpleStrategy
+from src.strategies import StrategyFactory
 from src.engine import MarketEngine
 from src.reporter import PerformanceReporter
-from src.logger import logger
 
 def main():
     print("=" * 50)
@@ -45,14 +44,19 @@ def main():
 
     print("\nИзберете търговска стратегия:")
     print("[1] Проста стратегия (Купува при спад, продава при ръст)")
+    print("[2] Momentum стратегия")
+    print("[3] Агресивна (Always Buy)")
     
     while True:
         strategy_choice = input("> ")
-        if strategy_choice == "1":
-            strategy = SimpleStrategy()
+        strategy_map = {"1": "simple", "2": "momentum", "3": "always_buy"}
+        
+        if strategy_choice in strategy_map:
+            strategy_key = strategy_map[strategy_choice]
+            strategy = StrategyFactory.get_strategy(strategy_key)
             break
         else:
-            print("Невалиден избор. Моля, въведете 1.")
+            print("Невалиден избор. Моля, въведете 1, 2 или 3.")
 
     print("\nКонфигурацията е успешна! Стартиране на симулацията...\n")
     

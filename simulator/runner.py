@@ -2,16 +2,9 @@ import os
 import tempfile
 from simulator.models import BacktestRun, Trade
 from src.portfolio import Portfolio
-from src.strategies import SimpleStrategy, AlwaysBuyStrategy, MomentumStrategy
+from src.strategies import StrategyFactory
 from src.data_loader import csv_data_generator
 from src.engine import MarketEngine
-
-def get_strategy_instance(strategy_key: str):
-    if strategy_key == 'always_buy':
-        return AlwaysBuyStrategy()
-    elif strategy_key == 'momentum':
-        return MomentumStrategy()
-    return SimpleStrategy()
 
 def execute_simulation(initial_capital: float, strategy_key: str, uploaded_file) -> int:
     with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp_file:
@@ -21,7 +14,7 @@ def execute_simulation(initial_capital: float, strategy_key: str, uploaded_file)
 
     try:
         portfolio = Portfolio(initial_capital=initial_capital)
-        strategy = get_strategy_instance(strategy_key)
+        strategy = StrategyFactory.get_strategy(strategy_key)
         data_gen = csv_data_generator(temp_file_path) 
         
         engine = MarketEngine(
