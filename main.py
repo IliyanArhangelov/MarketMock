@@ -1,5 +1,5 @@
 import sys
-from src.data_loader import csv_data_generator
+from src.data_loader import csv_data_generator, api_data_generator
 from src.portfolio import Portfolio
 from src.strategies import StrategyFactory
 from src.engine import MarketEngine
@@ -23,7 +23,7 @@ def main():
 
     print("\nИзберете източник на исторически данни:")
     print("[1] Локален CSV файл (data/sample.csv)")
-    print("[2] Външно API (Binance) - Предстои да се добави")
+    print("[2] Външно API (Binance)")
     
     while True:
         data_source_choice = input("> ")
@@ -35,9 +35,10 @@ def main():
             ticker_symbol = "CSV_ASSET"
             break
         elif data_source_choice == "2":
-            print("API функционалността все още не е активна. Използваме CSV по подразбиране.")
-            data_gen = csv_data_generator("data/sample.csv")
-            ticker_symbol = "CSV_ASSET"
+            ticker_symbol = input("Въведете търговски символ (напр. BTCUSDT) [натиснете Enter за 'BTCUSDT']: ")
+            if not ticker_symbol:
+                ticker_symbol = "BTCUSDT"
+            data_gen = api_data_generator(ticker_symbol)
             break
         else:
             print("Невалиден избор. Моля, въведете 1 или 2.")
