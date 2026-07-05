@@ -639,3 +639,384 @@ KeyError: 'csv_file'
 2026-07-05 12:03:39,607 - INFO - Стратегията реши: SELL 1 бр.
 2026-07-05 12:03:39,607 - INFO - Продадени 1 бр. CSV_ASSET на цена 152.00. Такса: 0.15
 2026-07-05 12:03:39,607 - INFO - --- КРАЙ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:41:10,589 - WARNING - Not Found: /favicon.ico
+2026-07-05 09:41:17,596 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:41:17,920 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:41:17,920 - INFO - Купени 1 бр. BTCUSD на цена 66410.14. Такса: 66.41
+2026-07-05 09:41:17,922 - INFO - --- КРАЙ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:41:29,625 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:41:29,908 - ERROR - Грешка при връзка с API: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=fhgjh&interval=1d&limit=100
+2026-07-05 09:41:29,940 - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/data_loader.py", line 35, in api_data_generator
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=fhgjh&interval=1d&limit=100
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/views.py", line 16, in home_view
+    run_id = execute_simulation(capital, strategy_key, data_source, uploaded_file, ticker)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/runner.py", line 34, in execute_simulation
+    engine.run()
+    ~~~~~~~~~~^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/engine.py", line 22, in run
+    for daily_data in self.data_feed:
+                      ^^^^^^^^^^^^^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/data_loader.py", line 47, in api_data_generator
+    raise MarketMockError(f"Неуспешно извличане на данни от Binance API: {e}")
+src.exceptions.MarketMockError: Неуспешно извличане на данни от Binance API: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=fhgjh&interval=1d&limit=100
+2026-07-05 09:41:39,665 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:41:40,172 - ERROR - Грешка при връзка с API: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=fhgjh&interval=1d&limit=100
+2026-07-05 09:41:40,200 - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/data_loader.py", line 35, in api_data_generator
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=fhgjh&interval=1d&limit=100
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/views.py", line 16, in home_view
+    run_id = execute_simulation(capital, strategy_key, data_source, uploaded_file, ticker)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/runner.py", line 34, in execute_simulation
+    engine.run()
+    ~~~~~~~~~~^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/engine.py", line 22, in run
+    for daily_data in self.data_feed:
+                      ^^^^^^^^^^^^^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/data_loader.py", line 47, in api_data_generator
+    raise MarketMockError(f"Неуспешно извличане на данни от Binance API: {e}")
+src.exceptions.MarketMockError: Неуспешно извличане на данни от Binance API: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=fhgjh&interval=1d&limit=100
+2026-07-05 09:42:24,205 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:42:24,522 - ERROR - Грешка при връзка с API: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=ETH&interval=1d&limit=100
+2026-07-05 09:42:24,553 - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/data_loader.py", line 35, in api_data_generator
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=ETH&interval=1d&limit=100
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/views.py", line 16, in home_view
+    run_id = execute_simulation(capital, strategy_key, data_source, uploaded_file, ticker)
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/simulator/runner.py", line 34, in execute_simulation
+    engine.run()
+    ~~~~~~~~~~^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/engine.py", line 22, in run
+    for daily_data in self.data_feed:
+                      ^^^^^^^^^^^^^^
+  File "/home/stoyankolev/Documents/VsCode/MarketMock/src/data_loader.py", line 47, in api_data_generator
+    raise MarketMockError(f"Неуспешно извличане на данни от Binance API: {e}")
+src.exceptions.MarketMockError: Неуспешно извличане на данни от Binance API: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=ETH&interval=1d&limit=100
+2026-07-05 09:42:56,705 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:42:56,986 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,986 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,986 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,986 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,986 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,986 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,986 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,986 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,986 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,986 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,987 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,987 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,987 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,987 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,987 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,987 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,987 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,988 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,988 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,988 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,988 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,988 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,988 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,989 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,989 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,989 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,989 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,989 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,989 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,989 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,989 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,989 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,990 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,990 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,990 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,990 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,990 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,990 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,990 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,990 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,990 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,990 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,991 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,991 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,991 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,991 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,991 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,991 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,991 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,991 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,992 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,992 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,992 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,992 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,992 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,992 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,992 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,993 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,993 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,993 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,993 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,993 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,993 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,993 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,993 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,993 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,994 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,994 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,994 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,994 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,994 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,994 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,994 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,994 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,994 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,994 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,994 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,995 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,995 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,995 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,995 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,995 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,995 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,995 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,996 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,996 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,996 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,996 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,996 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,996 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,996 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,996 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,996 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,996 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,996 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,997 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,997 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,997 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,997 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,997 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,997 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,997 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,997 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,997 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,997 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,998 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,998 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,998 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,998 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,998 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,998 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,998 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,998 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,998 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,998 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,998 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,999 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,999 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,999 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,999 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,999 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,999 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,999 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,999 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,999 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:56,999 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:56,999 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,000 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,000 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,000 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,000 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,000 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,000 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,000 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,001 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,001 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,002 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,002 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,002 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,002 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,002 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,002 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,002 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,003 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,003 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,003 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,003 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,003 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,003 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,003 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,004 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,004 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,004 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,004 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,004 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,004 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,004 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,004 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,004 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,004 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,005 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,005 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,005 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,005 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,005 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,005 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,005 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:42:57,005 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:42:57,006 - INFO - --- КРАЙ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:42:57,185 - WARNING - Not Found: /favicon.ico
+2026-07-05 09:43:02,807 - INFO - --- СТАРТИРАНЕ НА СИМУЛАЦИЯТА ---
+2026-07-05 09:43:03,097 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,097 - INFO - Купени 1 бр. ETHUSDT на цена 2026.48. Такса: 2.03
+2026-07-05 09:43:03,097 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,097 - INFO - Купени 1 бр. ETHUSDT на цена 2105.43. Такса: 2.11
+2026-07-05 09:43:03,097 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,097 - INFO - Продадени 1 бр. ETHUSDT на цена 2057.17. Такса: 2.06
+2026-07-05 09:43:03,097 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,097 - INFO - Купени 1 бр. ETHUSDT на цена 2110.17. Такса: 2.11
+2026-07-05 09:43:03,097 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,098 - INFO - Купени 1 бр. ETHUSDT на цена 2240.01. Такса: 2.24
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,098 - INFO - Продадени 1 бр. ETHUSDT на цена 2190.00. Такса: 2.19
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,098 - INFO - Купени 1 бр. ETHUSDT на цена 2245.05. Такса: 2.25
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,098 - INFO - Продадени 1 бр. ETHUSDT на цена 2191.65. Такса: 2.19
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,098 - INFO - Купени 1 бр. ETHUSDT на цена 2369.46. Такса: 2.37
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,098 - INFO - Купени 1 бр. ETHUSDT на цена 2419.00. Такса: 2.42
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,098 - INFO - Продадени 1 бр. ETHUSDT на цена 2350.32. Такса: 2.35
+2026-07-05 09:43:03,098 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,099 - INFO - Продадени 1 бр. ETHUSDT на цена 2263.27. Такса: 2.26
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,099 - INFO - Купени 1 бр. ETHUSDT на цена 2313.85. Такса: 2.31
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,099 - INFO - Купени 1 бр. ETHUSDT на цена 2374.07. Такса: 2.37
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,099 - INFO - Купени 1 бр. ETHUSDT на цена 2369.44. Такса: 2.37
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,099 - INFO - Продадени 1 бр. ETHUSDT на цена 2303.67. Такса: 2.30
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,099 - INFO - Продадени 1 бр. ETHUSDT на цена 2291.06. Такса: 2.29
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,099 - INFO - Продадени 1 бр. ETHUSDT на цена 2274.96. Такса: 2.27
+2026-07-05 09:43:03,099 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,099 - INFO - Продадени 1 бр. ETHUSDT на цена 2224.66. Такса: 2.22
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - INFO - Продадени 1 бр. ETHUSDT на цена 2131.00. Такса: 2.13
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,100 - INFO - Купени 1 бр. ETHUSDT на цена 2117.68. Такса: 2.12
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - INFO - Продадени 1 бр. ETHUSDT на цена 2024.84. Такса: 2.02
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,100 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,100 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,101 - INFO - Купени 1 бр. ETHUSDT на цена 1690.51. Такса: 1.69
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,101 - INFO - Продадени 1 бр. ETHUSDT на цена 1639.52. Такса: 1.64
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,101 - INFO - Купени 1 бр. ETHUSDT на цена 1673.46. Такса: 1.67
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,101 - INFO - Купени 1 бр. ETHUSDT на цена 1725.62. Такса: 1.73
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,101 - INFO - Купени 1 бр. ETHUSDT на цена 1796.13. Такса: 1.80
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,101 - INFO - Продадени 1 бр. ETHUSDT на цена 1750.60. Такса: 1.75
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,101 - INFO - Продадени 1 бр. ETHUSDT на цена 1711.11. Такса: 1.71
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,101 - INFO - Продадени 1 бр. ETHUSDT на цена 1667.13. Такса: 1.67
+2026-07-05 09:43:03,101 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,101 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,102 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,102 - WARNING - Опит за продажба на 1 ETHUSDT, но имаме само 0.
+2026-07-05 09:43:03,102 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,102 - INFO - Купени 1 бр. ETHUSDT на цена 1613.07. Такса: 1.61
+2026-07-05 09:43:03,102 - INFO - Стратегията реши: SELL 1 бр.
+2026-07-05 09:43:03,102 - INFO - Продадени 1 бр. ETHUSDT на цена 1572.01. Такса: 1.57
+2026-07-05 09:43:03,102 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,102 - INFO - Купени 1 бр. ETHUSDT на цена 1609.58. Такса: 1.61
+2026-07-05 09:43:03,102 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,102 - INFO - Купени 1 бр. ETHUSDT на цена 1700.57. Такса: 1.70
+2026-07-05 09:43:03,102 - INFO - Стратегията реши: BUY 1 бр.
+2026-07-05 09:43:03,102 - INFO - Купени 1 бр. ETHUSDT на цена 1758.21. Такса: 1.76
+2026-07-05 09:43:03,103 - INFO - --- КРАЙ НА СИМУЛАЦИЯТА ---
