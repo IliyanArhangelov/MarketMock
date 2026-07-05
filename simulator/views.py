@@ -9,9 +9,11 @@ def home_view(request):
         if form.is_valid():
             capital = form.cleaned_data['initial_capital']
             strategy_key = form.cleaned_data['strategy']
-            uploaded_file = form.cleaned_data['csv_file']
+            data_source = form.cleaned_data['data_source']
+            uploaded_file = form.cleaned_data.get('csv_file')
+            ticker = form.cleaned_data.get('ticker')
             
-            run_id = execute_simulation(capital, strategy_key, uploaded_file)
+            run_id = execute_simulation(capital, strategy_key, data_source, uploaded_file, ticker)
             
             return redirect('simulation_result', run_id=run_id)
     else:

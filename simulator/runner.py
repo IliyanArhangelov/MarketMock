@@ -3,25 +3,32 @@ import tempfile
 from simulator.models import BacktestRun, Trade
 from src.portfolio import Portfolio
 from src.strategies import StrategyFactory
-from src.data_loader import csv_data_generator
+from src.data_loader import csv_data_generator, api_data_generator
 from src.engine import MarketEngine
 
-def execute_simulation(initial_capital: float, strategy_key: str, uploaded_file) -> int:
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp_file:
-        for chunk in uploaded_file.chunks():
-            tmp_file.write(chunk)
-        temp_file_path = tmp_file.name 
+def execute_simulation(initial_capital: float, strategy_key: str, data_source: str, uploaded_file=None, ticker: str=None) -> int:
+    temp_file_path = None
+    
+    if data_source == 'csv':
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp_file:
+            for chunk in uploaded_file.chunks():
+                tmp_file.write(chunk)
+            temp_file_path = tmp_file.name 
+        data_gen = csv_data_generator(temp_file_path)
+        run_ticker = uploaded_file.name
+    else:
+        data_gen = api_data_generator(ticker)
+        run_ticker = ticker
 
     try:
         portfolio = Portfolio(initial_capital=initial_capital)
         strategy = StrategyFactory.get_strategy(strategy_key)
-        data_gen = csv_data_generator(temp_file_path) 
         
         engine = MarketEngine(
             data_feed=data_gen,
             portfolio=portfolio,
             strategy=strategy,
-            ticker=uploaded_file.name
+            ticker=run_ticker
         )
         
         engine.run()
@@ -46,7 +53,7 @@ def execute_simulation(initial_capital: float, strategy_key: str, uploaded_file)
 
         run_record = BacktestRun.objects.create(
             strategy_name=strategy.__class__.__name__,
-            ticker=uploaded_file.name,
+            ticker=run_ticker,
             initial_capital=initial_capital,
             final_value=final_value,
             roi_percentage=roi,
@@ -67,5 +74,5 @@ def execute_simulation(initial_capital: float, strategy_key: str, uploaded_file)
         return run_record.id
 
     finally:
-        if os.path.exists(temp_file_path):
+        if temp_file_path and os.path.exists(temp_file_path):
             os.remove(temp_file_path)

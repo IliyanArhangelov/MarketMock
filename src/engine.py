@@ -32,7 +32,7 @@ class MarketEngine:
 
             action = signal.get("action")
             quantity = signal.get("quantity", 0)
-            ticker = "ASSET"
+            ticker = self.ticker
             if action == "BUY" and quantity > 0:
                 try:
                     self.portfolio.buy(ticker, price, quantity, date)
